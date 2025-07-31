@@ -1,19 +1,19 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(36, 36, 36, 0.7);
-`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(36, 36, 36, 0.7);
+`;
 
 export const Content = styled.View`
-    width: 90%;
-    height: 350px;;
-    background-color: #FFF;
-    border-radius: 10px;
-    padding: 15px;
-`
+  width: 90%;
+  height: 350px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+`;
 
 export const InputLabel = styled.Text`
   margin-top: 15px;
@@ -42,10 +42,9 @@ export const TextButton = styled.Text`
   color: #fff;
 `;
 export const CloseButton = styled.TouchableOpacity`
-    margin-top: 5px;
+  margin-top: 5px;
 `;
 export const CloseText = styled.Text`
-    text-align: center;
-    opacity: 0.7;
+  text-align: center;
+  opacity: 0.7;
 `;
-

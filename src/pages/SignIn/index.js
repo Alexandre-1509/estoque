@@ -29,7 +29,7 @@ export function SignIn() {
 
   function handleRegister() {
     if (userName === "" || userEmail === "" || userPassword === "") {
-      alert('Por favor, preencha todos os campos!')
+      alert("Por favor, preencha todos os campos!");
       return;
     }
 
@@ -41,11 +41,11 @@ export function SignIn() {
   }
 
   function handleLogin() {
-    if(userEmail === ''|| userPassword === ''){
-      alert('Por favor, preencha todos os campos')
+    if (userEmail === "" || userPassword === "") {
+      alert("Por favor, preencha todos os campos");
       return;
     }
-    
+
     signIn(userEmail, userPassword);
   }
 
@@ -54,9 +54,7 @@ export function SignIn() {
       return (
         <Background>
           <Logo source={require("../../assets/logotipo.png")} />
-          <Container
-            behavior={Platform.OS == "ios" ? "height" : "padding"}
-          >
+          <Container behavior={Platform.OS == "ios" ? "height" : "padding"}>
             <InputLabel>Nome</InputLabel>
             <Input
               placeholder="Nome completo"

@@ -5,21 +5,20 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export const AppContext = createContext({});
 
 export function AppProvider({ children }) {
-
-  const [user, setUser] = useState(null)
-  const [items, setItems] = useState([])
-  const [modalVisible, setModalVisible] = useState(false)
+  const [user, setUser] = useState(null);
+  const [items, setItems] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
   useEffect(() => {
-    async function loadItems(){
-      const response = await api.get('/estoque')
-      setItems(response.data)
+    async function loadItems() {
+      const response = await api.get("/estoque");
+      setItems(response.data);
     }
 
-    loadItems()
-  }, [items])
+    loadItems();
+  }, [items]);
 
-  function stateModal(){
-    setModalVisible(!modalVisible)
+  function stateModal() {
+    setModalVisible(!modalVisible);
   }
   //Cadastrando usuário
   async function signUp(userName, userEmail, userPassword) {
@@ -42,30 +41,39 @@ export function AppProvider({ children }) {
       });
       const { email, name, id, token } = response.data;
 
-      await AsyncStorage.setItem('@accessToken', token)
+      await AsyncStorage.setItem("@accessToken", token);
 
-      
-      api.defaults.headers['Authorization'] = `${token}`
+      api.defaults.headers["Authorization"] = `${token}`;
 
       setUser({
         id,
         name,
-        email
-      })
+        email,
+      });
     } catch (err) {
-      alert('Usuário ou senha incorretos')
+      alert("Usuário ou senha incorretos");
     }
   }
   //Deslogando usuário
-  async function signOut(){
-    await AsyncStorage.clear()
-    .then(() => {
-      setUser(null)
-    })
+  async function signOut() {
+    await AsyncStorage.clear().then(() => {
+      setUser(null);
+    });
   }
 
   return (
-    <AppContext.Provider value={{ signUp, signIn, user, signed: !!user, signOut, items, stateModal, modalVisible }}>
+    <AppContext.Provider
+      value={{
+        signUp,
+        signIn,
+        user,
+        signed: !!user,
+        signOut,
+        items,
+        stateModal,
+        modalVisible,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

@@ -5,9 +5,9 @@ export const Background = styled.SafeAreaView`
   background-color: #323232;
 `;
 export const Logo = styled.Image`
-    flex: 1;
-    width: 100%;
-    height: 100%;
+  flex: 1;
+  width: 100%;
+  height: 100%;
 `;
 export const Container = styled.KeyboardAvoidingView`
   background-color: #fff;
@@ -43,9 +43,9 @@ export const TextButton = styled.Text`
   color: #fff;
 `;
 export const SignUpButton = styled.TouchableOpacity`
-    margin-top: 5px;
+  margin-top: 5px;
 `;
 export const SignUpText = styled.Text`
-    text-align: center;
-    opacity: 0.7;
+  text-align: center;
+  opacity: 0.7;
 `;
