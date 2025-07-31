@@ -19,5 +19,10 @@ export const AddButton = styled.TouchableOpacity`
     justify-content: center;
     align-items: center;
     align-self: flex-end;
-    margin-right: 15px
+    margin-right: 15px;
+`
+
+export const ModalBackground = styled.Modal`
+    flex: 1;
+    background-color: rgba(36, 36, 36, 0.5);
 `

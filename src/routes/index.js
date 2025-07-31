@@ -4,7 +4,6 @@ import { SignIn } from "../pages/SignIn";
 import { AppContext } from "../contexts/appContext";
 
 export default function Routes() {
-  //const { signed } = useContext(AppContext);
-  const signed = true;
+  const { signed } = useContext(AppContext);
   return signed ? <AppRoutes /> : <SignIn />;
 }

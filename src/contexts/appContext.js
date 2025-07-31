@@ -7,7 +7,21 @@ export const AppContext = createContext({});
 export function AppProvider({ children }) {
 
   const [user, setUser] = useState(null)
+  const [items, setItems] = useState([])
+  const [modalVisible, setModalVisible] = useState(false)
+  useEffect(() => {
+    async function loadItems(){
+      const response = await api.get('/estoque')
+      setItems(response.data)
+    }
 
+    loadItems()
+  }, [items])
+
+  function stateModal(){
+    setModalVisible(!modalVisible)
+  }
+  //Cadastrando usuário
   async function signUp(userName, userEmail, userPassword) {
     try {
       const response = await api.post("/cadastro", {
@@ -19,7 +33,7 @@ export function AppProvider({ children }) {
       console.log(err);
     }
   }
-
+  //Logando usuário
   async function signIn(userEmail, userPassword) {
     try {
       const response = await api.post("/login", {
@@ -42,7 +56,7 @@ export function AppProvider({ children }) {
       alert('Usuário ou senha incorretos')
     }
   }
-
+  //Deslogando usuário
   async function signOut(){
     await AsyncStorage.clear()
     .then(() => {
@@ -51,7 +65,7 @@ export function AppProvider({ children }) {
   }
 
   return (
-    <AppContext.Provider value={{ signUp, signIn, user, signed: !!user, signOut }}>
+    <AppContext.Provider value={{ signUp, signIn, user, signed: !!user, signOut, items, stateModal, modalVisible }}>
       {children}
     </AppContext.Provider>
   );
